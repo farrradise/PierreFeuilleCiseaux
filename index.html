@@ -17,7 +17,6 @@
         <button type="button" name="button"><img src="img/ciseaux.png" alt="illustration ciseaux"></button>
         <button type="button" name="button"><img src="img/feuille.png" alt="illustration papier"></button>
         <button type="button" name="button"><img src="img/pierre.png" alt="illustration pierre"></button>
-
       </div>
 
       <!-- le dessin du garçon -->
@@ -25,14 +24,15 @@
         <img id="boy" src="img/boy-happy.png" alt="dessin de garçon">
         <figure>
           <img src="img/bubble.png" alt="bulle de BD">
-          <figcaption> Salut, tu veux jouer avec moi ? <br>
-            <button type="button" name="button">Oh YEAH ! </button>
-            <button type="button" name="button">Non, merci.</button>
-          </figcaption>
+
           <figcaption id="askForName">
-            <p> Top ! Je suis <span>Bot</span>, et toi c'est quoi ton prénom ? <br>
-              <input type="text" name="" value=""> <!--le mettre en hidden pour le prenom-->
-            </p>
+          Salut, je suis <em>Bot</em>, et toi, comment tu t'appelles ? <br> <input type="text" name="" placeholder="pseudo" required onchange="switchToWannaPlay()">
+          <input id="btnAskForName" type="submit" name="" value="ok">
+          </figcaption>
+
+          <figcaption id="onJoue"> Ok <span id="lePrenom"></span>, tu veux jouer avec moi ? <br>
+            <button type="button" name="button" onclick="switchToTuJoues()">Oh YEAH ! </button>
+            <button type="button" name="button">Nope</button> <!-- mettre une alternative -->
           </figcaption>
           <figcaption>
             <img src="" alt="">

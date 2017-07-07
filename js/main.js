@@ -3,11 +3,13 @@ var etapePlay = document.getElementById("onJoue");
 var etapeJoue = document.getElementById("play");
 var etapeAnim = document.getElementById("animation");
 var etapeScor = document.getElementById("score");
+var botChoix2 = document.getElementById("botChoix2");
 
 etapePlay.style.visibility = "hidden";
 etapeJoue.style.visibility = "hidden";
 etapeAnim.style.visibility = "hidden";
 etapeScor.style.visibility = "hidden";
+botChoix2.style.visibility = "hidden";
 
 document.getElementById("btnAskForName").addEventListener("click", switchToWannaPlay);
 
@@ -51,42 +53,42 @@ function lancelejeu() {
     userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
 //    console.log(userChoice);
 
-/*    if (userChoice == document.getElementById("ciseaux")) {
-      userChoice = "ciseaux";
-    } else if (userChoice == document.getElementById("papier")) {
-      userChoice = "papier";
-    } else {
-      userChoice = "pierre";
-    }
-*/
+    bubbleVisible.style.visibility = "visible";
+    botChoix2.style.visibility = "visible";
 
-    if ( userChoice == ordiChoice ) {
-      alert("égalité");
-    //  userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
-    } else {
         switch (userChoice) {
 
             case "pierre":
             alert("l'ordi avait choisi : "+ ordiChoice);
 
               if (ordiChoice == "ciseaux") {
+                botChoix.setAttribute('src', "./img/ciseaux.png");
                 alert("you win !");
                 userPoint++;
-              } else {
+              } else if (ordiChoice == "papier") {
+                botChoix.setAttribute('src', "./img/feuille.png");
                 alert("you loose !");
                 ordiPoint++;
+              } else {
+                botChoix.setAttribute('src', "./img/pierre.png");
+                alert("Egalité !");
               }
             break;
 
             case "papier":
-            alert("l'ordi avait choisi : "+ ordiChoice);
+            bubbleVisible.style.visibility = "visible";
 
               if (ordiChoice == "pierre") {
+                botChoix.setAttribute('src', "./img/pierre.png");
                 alert("you win !");
                 userPoint++;
-              } else {
+              } else if (ordiChoice == "ciseaux") {
+                botChoix.setAttribute('src', "./img/ciseaux.png");
                 alert("you loose !");
                 ordiPoint++;
+              } else {
+                botChoix.setAttribute('src', "./img/feuille.png");
+                alert("Egalité !");
               }
             break;
 
@@ -94,20 +96,25 @@ function lancelejeu() {
             alert("l'ordi avait choisi : "+ ordiChoice);
 
               if (ordiChoice == "papier") {
+                botChoix.setAttribute('src', "./img/feuille.png");
                 alert("you win !");
                 userPoint++;
-              } else {
+              } else if (ordiChoice == "pierre") {
+                botChoix.setAttribute('src', "./img/pierre.png");
                 alert("you loose !");
                 ordiPoint++;
+              } else {
+                botChoix.setAttribute('src', "./img/ciseaux.png");
+                alert("Egalité !");
               }
 
             break;
 
             default:
+            bubbleVisible.style.visibility = "visible";
             alert("on avait dit 'pierre' 'feuille' ou 'ciseaux', ne cherche pas à improviser");
         }
 
-    }
 
     document.getElementById("userPoint").innerHTML = userPoint;
     document.getElementById("ordiPoint").innerHTML = ordiPoint;

@@ -43,20 +43,22 @@ function lancelejeu() {
     var userChoice ="", ordiChoice = "";
     var allOpt = ["pierre", "papier", "ciseaux"];
 
-//    for (i = 0; (userPoint || ordiPoint) !== 3; i++) {
+    for (i = 0; (userPoint || ordiPoint) !== 3; i++) {
 
     ordiChoice = allOpt[Math.floor(Math.random() * allOpt.length)];
 //    console.log(ordiChoice);
 
-//    userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
+    userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
 //    console.log(userChoice);
-    if (userChoice == document.getElementById("ciseaux")) {
+
+/*    if (userChoice == document.getElementById("ciseaux")) {
       userChoice = "ciseaux";
     } else if (userChoice == document.getElementById("papier")) {
       userChoice = "papier";
     } else {
       userChoice = "pierre";
     }
+*/
 
     if ( userChoice == ordiChoice ) {
       alert("égalité");
@@ -101,8 +103,8 @@ function lancelejeu() {
 
             break;
 
-            // default:
-            // alert("on avait dit 'pierre' 'feuille' ou 'ciseaux', ne cherche pas à improviser");
+            default:
+            alert("on avait dit 'pierre' 'feuille' ou 'ciseaux', ne cherche pas à improviser");
         }
 
     }
@@ -110,12 +112,11 @@ function lancelejeu() {
     document.getElementById("userPoint").innerHTML = userPoint;
     document.getElementById("ordiPoint").innerHTML = ordiPoint;
 
-//    }
+    }
 
-    if (ordiPoint === 3) {
+    if (ordiPoint > userPoint) {
     alert("T'as perdu contre une machine !!!!");
-  }
-    if (userPoint === 3) {
+  } else {
     alert("Bravo, tu as gagné");
   }
 }

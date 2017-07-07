@@ -3,38 +3,44 @@
   <head>
     <meta charset="utf-8">
     <title>Pierre Papier Ciseaux</title>
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
 
     <main>
       <!-- qui disparait au premier clic -->
-      <h1>Pierre Feuille Ciseaux</h1>
+      <h1>Pierre <br>Feuille <br>Ciseaux</h1>
 
       <!-- qui apparait pendant le choix utilisateur -->
-      <p>Joue !</p>
-      <img src="" alt="">
-      <img src="" alt="">
-      <img src="" alt="">
+      <div id="play">
+        <p>Joue !</p>
+        <button type="button" name="button"><img src="img/ciseaux.png" alt="illustration ciseaux"></button>
+        <button type="button" name="button"><img src="img/feuille.png" alt="illustration papier"></button>
+        <button type="button" name="button"><img src="img/pierre.png" alt="illustration pierre"></button>
+
+      </div>
 
       <!-- le dessin du garçon -->
-      <img src="" alt="">
-      <figure>
-        <img src="" alt="">
-        <figcaption> Salut, tu veux jouer avec moi ?
-          <button type="button" name="button">Oh YEAH ! </button>
-          <button type="button" name="button">Non, merci.</button>
-        </figcaption>
-        <figcaption>
-          <p> Top ! Je suis <span>Bot</span>, et toi c'est quoi ton prénom ? <br>
-            <input type="text" name="" value=""> // le mettre en hidden pour le prenom
-          </p>
-        </figcaption>
-        <figcaption>
-          <img src="" alt="">
-        </figcaption>
-      </figure>
+      <div id="chat">
+        <img id="boy" src="img/boy-happy.png" alt="dessin de garçon">
+        <figure>
+          <img src="img/bubble.png" alt="bulle de BD">
+          <figcaption> Salut, tu veux jouer avec moi ? <br>
+            <button type="button" name="button">Oh YEAH ! </button>
+            <button type="button" name="button">Non, merci.</button>
+          </figcaption>
+          <figcaption id="askForName">
+            <p> Top ! Je suis <span>Bot</span>, et toi c'est quoi ton prénom ? <br>
+              <input type="text" name="" value=""> <!--le mettre en hidden pour le prenom-->
+            </p>
+          </figcaption>
+          <figcaption>
+            <img src="" alt="">
+          </figcaption>
+        </figure>
+      </div>
 
-      <div class=""> //le container pour l'animation
+      <div id="animation"> <!--le container pour l'animation-->
         <img src="" alt="">
         <img src="" alt="">
       </div>
@@ -45,81 +51,6 @@
     <aside class="">
 
     </aside>
-    <script type="text/javascript">
-
-
-    var userPoint = 0 , ordiPoint = 0;
-    var userChoice ="", ordiChoice = "";
-    var allOpt = ["pierre", "papier", "ciseaux"];
-
-
-    for (i = 0; (userPoint || ordiPoint) !== 3; i++) {
-
-    ordiChoice = allOpt[Math.floor(Math.random() * allOpt.length)];
-//    console.log(ordiChoice);
-
-    userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
-//    console.log(userChoice);
-
-
-    if ( userChoice == ordiChoice ) {
-      alert("égalité");
-    //  userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
-    } else {
-        switch (userChoice) {
-
-            case "pierre":
-            alert("l'ordi avait choisi : "+ ordiChoice);
-
-              if (ordiChoice == "ciseaux") {
-                alert("you win !");
-                userPoint++;
-              } else {
-                alert("you loose !");
-                ordiPoint++;
-              }
-            break;
-
-            case "papier":
-            alert("l'ordi avait choisi : "+ ordiChoice);
-
-              if (ordiChoice == "pierre") {
-                alert("you win !");
-                userPoint++;
-              } else {
-                alert("you loose !");
-                ordiPoint++;
-              }
-            break;
-
-            case "ciseaux":
-            alert("l'ordi avait choisi : "+ ordiChoice);
-
-              if (ordiChoice == "papier") {
-                alert("you win !");
-                userPoint++;
-              } else {
-                alert("you loose !");
-                ordiPoint++;
-              }
-
-            break;
-
-            default:
-            alert("on avait dit 'pierre' 'feuille' ou 'ciseaux', ne cherche pas à improviser");
-        }
-
-    }
-
-    alert("ordi : "+ ordiPoint + " \nvous : "+ userPoint);
-    }
-
-    if (ordiPoint > userPoint) {
-    alert("T'as perdu contre une machine !!!!");
-  } else {
-    alert("Bravo, tu as gagné");
-  }
-
-    </script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

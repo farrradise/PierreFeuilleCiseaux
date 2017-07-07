@@ -14,9 +14,9 @@
       <!-- qui apparait pendant le choix utilisateur -->
       <div id="play">
         <p>Joue !</p>
-        <button type="button" name="button"><img src="img/ciseaux.png" alt="illustration ciseaux"></button>
-        <button type="button" name="button"><img src="img/feuille.png" alt="illustration papier"></button>
-        <button type="button" name="button"><img src="img/pierre.png" alt="illustration pierre"></button>
+        <button id="ciseaux" type="button" name="button"><img src="img/ciseaux.png" alt="illustration ciseaux"></button>
+        <button id="papier" type="button" name="button"><img src="img/feuille.png" alt="illustration papier"></button>
+        <button id="pierre" type="button" name="button"><img src="img/pierre.png" alt="illustration pierre"></button>
       </div>
 
       <!-- le dessin du garçon -->
@@ -43,12 +43,20 @@
       <div id="animation"> <!--le container pour l'animation-->
         <img src="" alt="">
         <img src="" alt="">
+        <img src="" alt=""> <!-- à mettre après quelques secondes -->
       </div>
 
     </main>
 
     <!-- pour mettre les scores  -->
-    <aside class="">
+    <aside>
+      <div id="score">
+        <h3>Pts</h3>
+        <p><span id=Joueur1></span> <br><span id=userPoint>0</span></p>
+        <p> _ </p>
+        <p> Bot <br><span id="ordiPoint">0 </span></p>
+
+      </div>
 
     </aside>
     <script type="text/javascript" src="js/main.js"></script>

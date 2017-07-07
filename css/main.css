@@ -28,7 +28,7 @@ h1, #play p {
   color: white;
   position: relative;
   font-size: 53px;
-  text-shadow: 0px 2px 1px rgb(1,127,1);
+  text-shadow: 0px 3px 2px rgb(1,127,1);
   z-index: 3;
 }
 
@@ -123,6 +123,7 @@ h1, #play p {
 }
 
 aside {
+  text-align: center;
   min-width: 90px;
   width: 20%;
   height: 100vh;
@@ -131,4 +132,18 @@ aside {
   left: 0;
   border-right: 2px solid white;
   background-color: rgba(1,127,1,0.8);
+}
+
+aside div {
+  font-family: b;
+  width: 90%;
+  height: 100vh;
+  margin-left: 5%;
+}
+
+aside div * {
+  font-size: 40px;
+  padding-top: 10px;
+  margin: 0;
+  height: 20vh;
 }

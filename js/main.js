@@ -35,14 +35,31 @@ function switchToTuJoues() {
 }
 
 
-var userChoice = document.getElementById("ciseaux").addEventListener("click", lancelejeu);
-var userChoice = document.getElementById("papier").addEventListener("click", lancelejeu);
-var userChoice = document.getElementById("pierre").addEventListener("click", lancelejeu);
+document.getElementById("LEciseaux").addEventListener("click", lancelejeu);
+//document.getElementById("ciseaux").addEventListener("click", choixUtilisateur);
 
+document.getElementById("LEpapier").addEventListener("click", lancelejeu);
+//document.getElementById("papier").addEventListener("click", choixUtilisateur);
+
+document.getElementById("LEpierre").addEventListener("click", lancelejeu);
+//document.getElementById("pierre").addEventListener("click", choixUtilisateur);
+
+/*function leChoix(ele) {
+id = ele.id;
+
+  if ( id == "ciseaux"){
+  userChoice = "ciseaux";
+  } else if ( id == "papier") {
+  userChoice = "papier";
+  } else {
+  userChoice = "pierre";
+  }
+}
+*/
 
 function lancelejeu() {
     var userPoint = 0 , ordiPoint = 0;
-    var userChoice ="", ordiChoice = "";
+    // var userChoice ="", ordiChoice = "";
     var allOpt = ["pierre", "papier", "ciseaux"];
 
     for (i = 0; (userPoint || ordiPoint) !== 3; i++) {
@@ -122,8 +139,9 @@ function lancelejeu() {
     }
 
     if (ordiPoint > userPoint) {
-    alert("T'as perdu contre une machine !!!!");
-  } else {
-    alert("Bravo, tu as gagné");
-  }
+      alert("T'as perdu contre une machine !!!!");
+    } else {
+      alert("Bravo, tu as gagné");
+    }
+
 }

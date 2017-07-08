@@ -44,6 +44,8 @@ function switchToTuJoues() {
 
 //document.getElementById("LEpierre").addEventListener("click", lancelejeu);
 //document.getElementById("pierre").addEventListener("click", choixUtilisateur);
+
+
 var userPoint = 0 , ordiPoint = 0;
 
 
@@ -70,53 +72,73 @@ function leChoix(th) {
         switch (userChoice) {
 
             case "pierre":
-            alert("l'ordi avait choisi : "+ ordiChoice);
+  //          alert("l'ordi avait choisi : "+ ordiChoice);
 
               if (ordiChoice == "ciseaux") {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
+                etapeAnim.style.visibility = "visible";
+                etapeJoue.style.visibility = "hidden";
                 alert("you win !");
                 userPoint++;
               } else if (ordiChoice == "papier") {
                 botChoix.setAttribute('src', "./img/feuille.png");
+                etapeAnim.style.visibility = "visible";
+                etapeJoue.style.visibility = "hidden";
                 alert("you loose !");
                 ordiPoint++;
               } else {
                 botChoix.setAttribute('src', "./img/pierre.png");
-                alert("Egalité !");
+  //              botChoix2.style.visibility = "hidden";
+                document.getElementById('phrase').innerHTML = "Egalité. \n Allez on recommence ! "
+
+//                alert("Egalité !");
               }
             break;
 
             case "papier":
-            bubbleVisible.style.visibility = "visible";
+//            bubbleVisible.style.visibility = "visible";
 
               if (ordiChoice == "pierre") {
                 botChoix.setAttribute('src', "./img/pierre.png");
+                etapeAnim.style.visibility = "visible";
+                etapeJoue.style.visibility = "hidden";
                 alert("you win !");
                 userPoint++;
               } else if (ordiChoice == "ciseaux") {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
+                etapeAnim.style.visibility = "visible";
+                etapeJoue.style.visibility = "hidden";
                 alert("you loose !");
                 ordiPoint++;
               } else {
                 botChoix.setAttribute('src', "./img/feuille.png");
-                alert("Egalité !");
+//                botChoix2.style.visibility = "hidden";
+                document.getElementById('phrase').innerHTML = "Egalité! \n Allez on recommence ! "
+
+//                alert("Egalité !");
               }
             break;
 
             case "ciseaux":
-            alert("l'ordi avait choisi : "+ ordiChoice);
+//            alert("l'ordi avait choisi : "+ ordiChoice);
 
               if (ordiChoice == "papier") {
                 botChoix.setAttribute('src', "./img/feuille.png");
+                etapeAnim.style.visibility = "visible";
+                etapeJoue.style.visibility = "hidden";
                 alert("you win !");
                 userPoint++;
               } else if (ordiChoice == "pierre") {
                 botChoix.setAttribute('src', "./img/pierre.png");
+                etapeAnim.style.visibility = "visible";
+                etapeJoue.style.visibility = "hidden";
                 alert("you loose !");
                 ordiPoint++;
               } else {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
-                alert("Egalité !");
+//              botChoix2.style.visibility = "hidden";
+                document.getElementById('phrase').innerHTML = "Egalité! \n Allez on recommence ! "
+//              alert("Egalité !");
               }
 
             break;
@@ -126,9 +148,9 @@ function leChoix(th) {
             alert("on avait dit 'pierre' 'feuille' ou 'ciseaux', ne cherche pas à improviser");
         }
 
+        document.getElementById("userPoint").innerHTML = userPoint;
+        document.getElementById("ordiPoint").innerHTML = ordiPoint;
 
-    document.getElementById("userPoint").innerHTML = userPoint;
-    document.getElementById("ordiPoint").innerHTML = ordiPoint;
 
 
 
@@ -143,5 +165,9 @@ function leChoix(th) {
       ordiPoint = 0;
       userPoint = 0;
     }
+
+    document.getElementById("userPoint").innerHTML = userPoint;
+    document.getElementById("ordiPoint").innerHTML = ordiPoint;
+
 
 }

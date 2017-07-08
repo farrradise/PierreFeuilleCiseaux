@@ -4,6 +4,7 @@ var etapeJoue = document.getElementById("play");
 var etapeAnim = document.getElementById("animation");
 var etapeScor = document.getElementById("score");
 var botChoix2 = document.getElementById("botChoix2");
+var userChoice = "";
 
 etapePlay.style.visibility = "hidden";
 etapeJoue.style.visibility = "hidden";
@@ -36,38 +37,32 @@ function switchToTuJoues() {
 
 
 document.getElementById("LEciseaux").addEventListener("click", lancelejeu);
-//document.getElementById("ciseaux").addEventListener("click", choixUtilisateur);
-
 document.getElementById("LEpapier").addEventListener("click", lancelejeu);
-//document.getElementById("papier").addEventListener("click", choixUtilisateur);
-
 document.getElementById("LEpierre").addEventListener("click", lancelejeu);
-//document.getElementById("pierre").addEventListener("click", choixUtilisateur);
 
-/*function leChoix(ele) {
+function leChoix(ele) {
 id = ele.id;
 
   if ( id == "ciseaux"){
   userChoice = "ciseaux";
   } else if ( id == "papier") {
   userChoice = "papier";
-  } else {
+""  } else {
   userChoice = "pierre";
   }
 }
-*/
+
+
+var userPoint = 0 , ordiPoint = 0;
 
 function lancelejeu() {
-    var userPoint = 0 , ordiPoint = 0;
     // var userChoice ="", ordiChoice = "";
     var allOpt = ["pierre", "papier", "ciseaux"];
-
-    for (i = 0; (userPoint || ordiPoint) !== 3; i++) {
 
     ordiChoice = allOpt[Math.floor(Math.random() * allOpt.length)];
 //    console.log(ordiChoice);
 
-    userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
+//    userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
 //    console.log(userChoice);
 
     bubbleVisible.style.visibility = "visible";
@@ -136,12 +131,16 @@ function lancelejeu() {
     document.getElementById("userPoint").innerHTML = userPoint;
     document.getElementById("ordiPoint").innerHTML = ordiPoint;
 
-    }
 
-    if (ordiPoint > userPoint) {
+
+    if (ordiPoint === 3) {
       alert("T'as perdu contre une machine !!!!");
-    } else {
+      userPoint = 0;
+      userChoice = 0;
+    } else if (userPoint === 3) {
       alert("Bravo, tu as gagné");
+      userPoint = 0;
+      userChoice = 0;
     }
 
 }

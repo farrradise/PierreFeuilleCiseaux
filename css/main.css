@@ -107,20 +107,23 @@ h1, #play p {
   text-align: center;
 }
 
-#play button {
+/*#play button {
   text-align: center;
   height: 100px;
-}
+}*/
 
 #play img {
-  height: 100%;
+  height: 130px;
+  width: 130px;
+  display: flex;
+  margin: auto;
   /*width: 100%;*/
 }
 
-#play button {
+/*#play button {
   background-color: inherit;
   border: none;
-}
+}*/
 
 aside {
   text-align: center;

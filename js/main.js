@@ -5,6 +5,9 @@ var etapeAnim = document.getElementById("animation");
 var etapeScor = document.getElementById("score");
 var botChoix2 = document.getElementById("botChoix2");
 var userChoice;
+var phraseEgal = document.getElementById('phrase');
+var matchUser = document.getElementsByClassName('anim')[0];
+var matchOrdi = document.getElementsByClassName('anim')[1];
 
 etapePlay.style.visibility = "hidden";
 etapeJoue.style.visibility = "hidden";
@@ -33,18 +36,15 @@ function switchToTuJoues() {
   bubbleVisible.style.visibility = "hidden";
   h1Visible.style.visibility = "hidden";
   etapeScor.style.visibility = "visible";
+  etapeAnim.style.visibility = "hidden";
+  botChoix2.style.visibility = "hidden";
+
 }
 
 
-//document.getElementById("LEciseaux").addEventListener("click", lancelejeu);
-//document.getElementById("ciseaux").addEventListener("click", choixUtilisateur);
-
-//document.getElementById("LEpapier").addEventListener("click", lancelejeu);
-//document.getElementById("papier").addEventListener("click", choixUtilisateur);
-
-//document.getElementById("LEpierre").addEventListener("click", lancelejeu);
-//document.getElementById("pierre").addEventListener("click", choixUtilisateur);
-
+function supp() {
+  phraseEgal.style.visibility = "hidden";
+}
 
 var userPoint = 0 , ordiPoint = 0;
 
@@ -52,19 +52,11 @@ var userPoint = 0 , ordiPoint = 0;
 function leChoix(th) {
   var userChoice;
   userChoice = th.id;
-//  alert(userChoice);
-
-// console.log(userChoice);
 
 
-    // var userChoice ="", ordiChoice = "";
     var allOpt = ["pierre", "papier", "ciseaux"];
 
     ordiChoice = allOpt[Math.floor(Math.random() * allOpt.length)];
-//    console.log(ordiChoice);
-
-//    userChoice = prompt("Ecrivez 'pierre' 'papier' ou 'ciseaux'").toLowerCase();
-//    console.log(userChoice);
 
     bubbleVisible.style.visibility = "visible";
     botChoix2.style.visibility = "visible";
@@ -72,80 +64,281 @@ function leChoix(th) {
         switch (userChoice) {
 
             case "pierre":
-  //          alert("l'ordi avait choisi : "+ ordiChoice);
 
               if (ordiChoice == "ciseaux") {
+                var pos = 0;
                 botChoix.setAttribute('src', "./img/ciseaux.png");
+                phraseEgal.style.visibility = "hidden";
                 etapeAnim.style.visibility = "visible";
                 etapeJoue.style.visibility = "hidden";
-                alert("you win !");
-                userPoint++;
+                matchOrdi.setAttribute('src', "./img/ciseaux.png");
+                matchUser.setAttribute('src', "./img/pierre.png");
+                myMove();
+
+                // algo sur la petite anim'
+                function myMove() {
+                  var test = setInterval(frame, 1);
+                  function frame() {
+                    if (pos == 170) {
+                      clearInterval(test);
+                    } else {
+                      pos++;
+                      matchUser.style.top = pos + 'px';
+                      matchOrdi.style.bottom = pos + 'px';
+                    }
+                  }
+                }
+
+                setTimeout(myMessage, 1500);
+
+                //suite de l'anim
+                function myMessage() {
+                  phraseEgal.style.visibility = "visible";
+                  phraseEgal.innerHTML = "you win!";
+                }
+
+                setTimeout(mettrelepoint, 2000);
+                function mettrelepoint() {
+                  userPoint++;
+                }
+
+                setTimeout(switchToTuJoues, 3000);
+
+                setTimeout(supp, 3000);
+
               } else if (ordiChoice == "papier") {
+                var pos = 0;
                 botChoix.setAttribute('src', "./img/feuille.png");
+                phraseEgal.style.visibility = "hidden";
                 etapeAnim.style.visibility = "visible";
                 etapeJoue.style.visibility = "hidden";
-                alert("you loose !");
-                ordiPoint++;
+                matchOrdi.setAttribute('src', "./img/feuille.png");
+                matchUser.setAttribute('src', "./img/pierre.png");
+                myMove();
+
+                // algo sur la petite anim'
+                function myMove() {
+                  var test = setInterval(frame, 1);
+                  function frame() {
+                    if (pos == 170) {
+                      clearInterval(test);
+                    } else {
+                      pos++;
+                      matchUser.style.top = pos + 'px';
+                      matchOrdi.style.bottom = pos + 'px';
+                    }
+                  }
+                }
+
+                setTimeout(myMessage, 1500);
+
+                //suite de l'anim
+                function myMessage() {
+                  phraseEgal.style.visibility = "visible";
+                  phraseEgal.innerHTML = "you loose!";
+                }
+
+                setTimeout(mettrelepoint, 2000);
+                function mettrelepoint() {
+                  ordiPoint++;
+                }
+
+                setTimeout(switchToTuJoues, 3000);
+
+                setTimeout(supp, 3000);
+
               } else {
                 botChoix.setAttribute('src', "./img/pierre.png");
-  //              botChoix2.style.visibility = "hidden";
-                document.getElementById('phrase').innerHTML = "Egalité. \n Allez on recommence ! "
-
-//                alert("Egalité !");
+                phraseEgal.style.visibility = "visible";
+                phraseEgal.innerHTML = "Egalité. \n Allez on recommence ! ";
               }
             break;
 
             case "papier":
-//            bubbleVisible.style.visibility = "visible";
 
               if (ordiChoice == "pierre") {
+                var pos = 0;
                 botChoix.setAttribute('src', "./img/pierre.png");
                 etapeAnim.style.visibility = "visible";
                 etapeJoue.style.visibility = "hidden";
-                alert("you win !");
-                userPoint++;
+                phraseEgal.style.visibility = "hidden";
+                matchOrdi.setAttribute('src', "./img/pierre.png");
+                matchUser.setAttribute('src', "./img/feuille.png");
+                myMove();
+
+                // algo sur la petite anim'
+                function myMove() {
+                  var test = setInterval(frame, 1);
+                  function frame() {
+                    if (pos == 170) {
+                      clearInterval(test);
+                    } else {
+                      pos++;
+                      matchUser.style.top = pos + 'px';
+                      matchOrdi.style.bottom = pos + 'px';
+                    }
+                  }
+                }
+
+                setTimeout(myMessage, 1500);
+
+                //suite de l'anim
+                function myMessage() {
+                  phraseEgal.style.visibility = "visible";
+                  phraseEgal.innerHTML = "you win!";
+                }
+
+                setTimeout(mettrelepoint, 2000);
+                function mettrelepoint() {
+                  userPoint++;
+                }
+
+
+                setTimeout(switchToTuJoues, 3000);
+
+                setTimeout(supp, 3000);
+
               } else if (ordiChoice == "ciseaux") {
+                var pos = 0;
                 botChoix.setAttribute('src', "./img/ciseaux.png");
                 etapeAnim.style.visibility = "visible";
                 etapeJoue.style.visibility = "hidden";
-                alert("you loose !");
-                ordiPoint++;
+                phraseEgal.style.visibility = "hidden";
+                matchOrdi.setAttribute('src', "./img/ciseaux.png");
+                matchUser.setAttribute('src', "./img/feuille.png");
+                myMove();
+
+                // algo sur la petite anim'
+                function myMove() {
+                  var test = setInterval(frame, 1);
+                  function frame() {
+                    if (pos == 170) {
+                      clearInterval(test);
+                    } else {
+                      pos++;
+                      matchUser.style.top = pos + 'px';
+                      matchOrdi.style.bottom = pos + 'px';
+                    }
+                  }
+                }
+
+                setTimeout(myMessage, 1500);
+
+                //suite de l'anim
+                function myMessage() {
+                  phraseEgal.style.visibility = "visible";
+                  phraseEgal.innerHTML = "you loose!";
+                }
+
+                setTimeout(mettrelepoint, 2000);
+                function mettrelepoint() {
+                  ordiPoint++;
+                }
+
+
+                setTimeout(switchToTuJoues, 3000);
+
+                setTimeout(supp, 3000);
+
               } else {
                 botChoix.setAttribute('src', "./img/feuille.png");
-//                botChoix2.style.visibility = "hidden";
-                document.getElementById('phrase').innerHTML = "Egalité! \n Allez on recommence ! "
-
-//                alert("Egalité !");
+                phraseEgal.style.visibility = "visible";
+                phraseEgal.innerHTML = "Egalité! \n Allez on recommence ! ";
               }
             break;
 
             case "ciseaux":
-//            alert("l'ordi avait choisi : "+ ordiChoice);
 
               if (ordiChoice == "papier") {
+                var pos = 0;
                 botChoix.setAttribute('src', "./img/feuille.png");
                 etapeAnim.style.visibility = "visible";
                 etapeJoue.style.visibility = "hidden";
-                alert("you win !");
-                userPoint++;
+                phraseEgal.style.visibility = "hidden";
+                matchOrdi.setAttribute('src', "./img/feuille.png");
+                matchUser.setAttribute('src', "./img/ciseaux.png");
+                myMove();
+
+                // algo sur la petite anim'
+                function myMove() {
+                  var test = setInterval(frame, 1);
+                  function frame() {
+                    if (pos == 170) {
+                      clearInterval(test);
+                    } else {
+                      pos++;
+                      matchUser.style.top = pos + 'px';
+                      matchOrdi.style.bottom = pos + 'px';
+                    }
+                  }
+                }
+
+                setTimeout(myMessage, 1500);
+
+                //suite de l'anim
+                function myMessage() {
+                  phraseEgal.style.visibility = "visible";
+                  phraseEgal.innerHTML = "you win!";
+                }
+
+                setTimeout(mettrelepoint, 2000);
+                function mettrelepoint() {
+                  userPoint++;
+                }
+
+                setTimeout(switchToTuJoues, 3000);
+
+                setTimeout(supp, 3000);
+
               } else if (ordiChoice == "pierre") {
+                var pos = 0;
                 botChoix.setAttribute('src', "./img/pierre.png");
                 etapeAnim.style.visibility = "visible";
                 etapeJoue.style.visibility = "hidden";
-                alert("you loose !");
-                ordiPoint++;
+                phraseEgal.style.visibility = "hidden";
+                matchOrdi.setAttribute('src', "./img/pierre.png");
+                matchUser.setAttribute('src', "./img/ciseaux.png");
+                myMove();
+
+                // algo sur la petite anim'
+                function myMove() {
+                  var test = setInterval(frame, 1);
+                  function frame() {
+                    if (pos == 170) {
+                      clearInterval(test);
+                    } else {
+                      pos++;
+                      matchUser.style.top = pos + 'px';
+                      matchOrdi.style.bottom = pos + 'px';
+                    }
+                  }
+                }
+
+                setTimeout(myMessage, 1500);
+
+                //suite de l'anim
+                function myMessage() {
+                  phraseEgal.style.visibility = "visible";
+                  phraseEgal.innerHTML = "you loose!";
+                }
+
+                setTimeout(mettrelepoint, 2000);
+                function mettrelepoint() {
+                  ordiPoint++;
+                }
+
+                setTimeout(switchToTuJoues, 3000);
+
+                setTimeout(supp, 3000);
+
               } else {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
-//              botChoix2.style.visibility = "hidden";
-                document.getElementById('phrase').innerHTML = "Egalité! \n Allez on recommence ! "
-//              alert("Egalité !");
+                phraseEgal.style.visibility = "visible";
+                phraseEgal.innerHTML = "Egalité! \n Allez on recommence ! ";
               }
 
             break;
 
-            default:
-            bubbleVisible.style.visibility = "visible";
-            alert("on avait dit 'pierre' 'feuille' ou 'ciseaux', ne cherche pas à improviser");
         }
 
         document.getElementById("userPoint").innerHTML = userPoint;
@@ -153,21 +346,27 @@ function leChoix(th) {
 
 
 
+    setTimeout(winorfail, 2000);
 
-    if (ordiPoint === 3) {
-      alert("T'as perdu contre une machine !!!!");
+    function winorfail() {
+      if (ordiPoint === 3) {
+      botChoix2.style.visibility = "visible";
+      phraseEgal.style.visibility = "visible";
+      phraseEgal.innerHTML = "T'as perdu contre un robot, la défaite ! ";
       ordiPoint = 0;
       userPoint = 0;
     }
 
-    if (userPoint === 3) {
-      alert("Bravo, tu as gagné");
-      ordiPoint = 0;
-      userPoint = 0;
-    }
-
+      if (userPoint === 3) {
+        botChoix2.style.visibility = "visible";
+        phraseEgal.style.visibility = "visible";
+        phraseEgal.innerHTML = "Bravo, t'as gagné mon gars ! ";
+        ordiPoint = 0;
+        userPoint = 0;
+      }
     document.getElementById("userPoint").innerHTML = userPoint;
     document.getElementById("ordiPoint").innerHTML = ordiPoint;
+    }
 
 
 }

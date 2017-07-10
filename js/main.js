@@ -17,7 +17,6 @@ botChoix2.style.visibility = "hidden";
 
 document.getElementById("btnAskForName").addEventListener("click", switchToWannaPlay);
 
-// var prenom = "";
 
 function switchToWannaPlay() {
   prenom = document.getElementsByTagName("input")[0].value;
@@ -26,7 +25,16 @@ function switchToWannaPlay() {
   etapePlay.style.visibility = "visible";
   etapeName.style.visibility = "hidden";
 }
-// prompt(prenom);
+
+function laLoose() {
+    boy.setAttribute('src', "./img/boy-angry.png");
+    etapePlay.style.visibility = "hidden";
+    phraseEgal.style.visibility ="visible";
+    phraseEgal.innerHTML = "Va voir ailleurs si j'y suis !";
+    phraseEgal.style.marginTop ="-70px";
+    phraseEgal.style.fontSize = "30px";
+
+}
 
 function switchToTuJoues() {
   etapePlay.style.visibility = "hidden";
@@ -39,6 +47,16 @@ function switchToTuJoues() {
   etapeAnim.style.visibility = "hidden";
   botChoix2.style.visibility = "hidden";
 
+}
+
+function myMessageWin() {
+  phraseEgal.style.visibility = "visible";
+  phraseEgal.innerHTML = "you win!";
+}
+
+function myMessageLoose() {
+  phraseEgal.style.visibility = "visible";
+  phraseEgal.innerHTML = "you loose!";
 }
 
 
@@ -89,13 +107,8 @@ function leChoix(th) {
                   }
                 }
 
-                setTimeout(myMessage, 1500);
-
                 //suite de l'anim
-                function myMessage() {
-                  phraseEgal.style.visibility = "visible";
-                  phraseEgal.innerHTML = "you win!";
-                }
+                setTimeout(myMessageWin, 1500);
 
                 setTimeout(mettrelepoint, 2000);
                 function mettrelepoint() {
@@ -130,13 +143,9 @@ function leChoix(th) {
                   }
                 }
 
-                setTimeout(myMessage, 1500);
-
                 //suite de l'anim
-                function myMessage() {
-                  phraseEgal.style.visibility = "visible";
-                  phraseEgal.innerHTML = "you loose!";
-                }
+                setTimeout(myMessageLoose, 1500);
+
 
                 setTimeout(mettrelepoint, 2000);
                 function mettrelepoint() {
@@ -180,13 +189,8 @@ function leChoix(th) {
                   }
                 }
 
-                setTimeout(myMessage, 1500);
-
                 //suite de l'anim
-                function myMessage() {
-                  phraseEgal.style.visibility = "visible";
-                  phraseEgal.innerHTML = "you win!";
-                }
+                setTimeout(myMessageWin, 1500);
 
                 setTimeout(mettrelepoint, 2000);
                 function mettrelepoint() {
@@ -222,19 +226,13 @@ function leChoix(th) {
                   }
                 }
 
-                setTimeout(myMessage, 1500);
-
                 //suite de l'anim
-                function myMessage() {
-                  phraseEgal.style.visibility = "visible";
-                  phraseEgal.innerHTML = "you loose!";
-                }
+                setTimeout(myMessageLoose, 1500);
 
                 setTimeout(mettrelepoint, 2000);
                 function mettrelepoint() {
                   ordiPoint++;
                 }
-
 
                 setTimeout(switchToTuJoues, 3000);
 
@@ -244,6 +242,7 @@ function leChoix(th) {
                 botChoix.setAttribute('src', "./img/feuille.png");
                 phraseEgal.style.visibility = "visible";
                 phraseEgal.innerHTML = "Egalité! \n Allez on recommence ! ";
+                setTimeout(supp, 2000);
               }
             break;
 
@@ -273,13 +272,8 @@ function leChoix(th) {
                   }
                 }
 
-                setTimeout(myMessage, 1500);
-
                 //suite de l'anim
-                function myMessage() {
-                  phraseEgal.style.visibility = "visible";
-                  phraseEgal.innerHTML = "you win!";
-                }
+                setTimeout(myMessageWin, 1500);
 
                 setTimeout(mettrelepoint, 2000);
                 function mettrelepoint() {
@@ -288,7 +282,7 @@ function leChoix(th) {
 
                 setTimeout(switchToTuJoues, 3000);
 
-                setTimeout(supp, 1500);
+                setTimeout(supp, 3000);
 
               } else if (ordiChoice == "pierre") {
                 var pos = 0;
@@ -314,13 +308,8 @@ function leChoix(th) {
                   }
                 }
 
-                setTimeout(myMessage, 1500);
-
                 //suite de l'anim
-                function myMessage() {
-                  phraseEgal.style.visibility = "visible";
-                  phraseEgal.innerHTML = "you loose!";
-                }
+                setTimeout(myMessageLoose, 1500);
 
                 setTimeout(mettrelepoint, 2000);
                 function mettrelepoint() {
@@ -335,6 +324,7 @@ function leChoix(th) {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
                 phraseEgal.style.visibility = "visible";
                 phraseEgal.innerHTML = "Egalité! \n Allez on recommence ! ";
+                setTimeout(supp, 2000);
               }
 
             break;

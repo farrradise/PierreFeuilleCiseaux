@@ -39,7 +39,9 @@ h1, #play p, #animation p {
   /*z-index: 3;*/
 }
 
-
+#animation, #play {
+  z-index: 2!important;
+}
 
 /*mise en page du garçon avec sa bulle*/
 #chat figure {
@@ -100,11 +102,12 @@ h1, #play p, #animation p {
   right: 0px;
   width: 80%;
   max-width: 200px;
+  z-index: -3;
 }
+
 
 #play {
   width: 80%;
-  /*max-width: 200px;*/
   position: absolute;
   top: 0;
   right: 0;
@@ -119,7 +122,6 @@ h1, #play p, #animation p {
   width: 180px;
   display: flex;
   margin: auto;
-  /*width: 100%;*/
 }
 
 
@@ -194,4 +196,17 @@ aside div * {
   padding-top: 10px;
   margin: 0;
   height: 20vh;
+}
+
+@media (max-width:500px) {
+  #play p, #animation p, #score h3 {
+    display: none;
+  }
+
+  h1 {
+    margin-top: 0px!important;
+    font-size: 45px;
+    z-index: 5;
+  }
+
 }

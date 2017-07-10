@@ -318,7 +318,7 @@ function leChoix(th) {
 
                 setTimeout(switchToTuJoues, 3000);
 
-                setTimeout(supp, 1500);
+                setTimeout(supp, 3000);
 
               } else {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
@@ -340,26 +340,37 @@ function leChoix(th) {
 
     function winorfail() {
       if (ordiPoint === 3) {
-      botChoix2.style.visibility = "visible";
+      botChoix2.style.visibility = "hidden";
       phraseEgal.style.visibility = "visible";
       bubbleVisible.style.visibility = "visible";
       phraseEgal.innerHTML = "T'as perdu contre un robot, la défaite ! ";
+      phraseEgal.style.marginTop = "-70px";
+      phraseEgal.style.fontSize = "25px";
       setTimeout(fail, 1000);
         function fail() {
           ordiPoint = 0;
           userPoint = 0;
+
+          phraseEgal.innerHTML = "Allez, on rejoue !";
+          phraseEgal.style.marginTop = "0px";
+          phraseEgal.style.fontSize = "18px";
         }
     }
 
       if (userPoint === 3) {
         phraseEgal.style.visibility = "visible";
-        botChoix2.style.visibility = "visible";
+        botChoix2.style.visibility = "hidden";
         phraseEgal.innerHTML = "Bravo, t'as gagné mon gars ! ";
         bubbleVisible.style.visibility = "visible";
-          setTimeout(win, 1000);
+        phraseEgal.style.marginTop = "-70px";
+        phraseEgal.style.fontSize = "25px";
+          setTimeout(win, 2000);
           function win() {
             ordiPoint = 0;
             userPoint = 0;
+            phraseEgal.innerHTML = "Allez, on rejoue !";
+            phraseEgal.style.marginTop = "0px";
+            phraseEgal.style.fontSize = "18px";
           }
       }
     document.getElementById("userPoint").innerHTML = userPoint;

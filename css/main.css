@@ -199,7 +199,7 @@ aside div * {
 }
 
 @media (max-width:500px) {
-  #play p, #animation p, #score h3 {
+  #animation p, #score h3 {
     display: none;
   }
 
@@ -209,4 +209,38 @@ aside div * {
     z-index: 5;
   }
 
+  aside {
+    background-color: rgba(1,127,1,0.5);    
+    width: 100vw;
+    position: absolute!important;
+    height: 20vh;
+    margin-top: 80vh;
+  }
+
+  aside #score {
+    display: flex;
+  }
+
+  aside #score p{
+    width: 30%;
+  }
+
+  #play {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    left: 0;
+    /*margin-left: 0!important;*/
+  }
+
+  #play img {
+    width: 32%;
+    margin: 0;
+    margin-top: 30px!important;
+    height: 80px;
+  }
+
+  #play p {
+    width: 100%;
+  }
 }

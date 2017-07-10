@@ -288,7 +288,7 @@ function leChoix(th) {
 
                 setTimeout(switchToTuJoues, 3000);
 
-                setTimeout(supp, 3000);
+                setTimeout(supp, 1500);
 
               } else if (ordiChoice == "pierre") {
                 var pos = 0;
@@ -329,7 +329,7 @@ function leChoix(th) {
 
                 setTimeout(switchToTuJoues, 3000);
 
-                setTimeout(supp, 3000);
+                setTimeout(supp, 1500);
 
               } else {
                 botChoix.setAttribute('src', "./img/ciseaux.png");
@@ -346,23 +346,31 @@ function leChoix(th) {
 
 
 
-    setTimeout(winorfail, 2000);
+    setTimeout(winorfail, 3000);
 
     function winorfail() {
       if (ordiPoint === 3) {
       botChoix2.style.visibility = "visible";
       phraseEgal.style.visibility = "visible";
+      bubbleVisible.style.visibility = "visible";
       phraseEgal.innerHTML = "T'as perdu contre un robot, la défaite ! ";
-      ordiPoint = 0;
-      userPoint = 0;
+      setTimeout(fail, 1000);
+        function fail() {
+          ordiPoint = 0;
+          userPoint = 0;
+        }
     }
 
       if (userPoint === 3) {
-        botChoix2.style.visibility = "visible";
         phraseEgal.style.visibility = "visible";
+        botChoix2.style.visibility = "visible";
         phraseEgal.innerHTML = "Bravo, t'as gagné mon gars ! ";
-        ordiPoint = 0;
-        userPoint = 0;
+        bubbleVisible.style.visibility = "visible";
+          setTimeout(win, 1000);
+          function win() {
+            ordiPoint = 0;
+            userPoint = 0;
+          }
       }
     document.getElementById("userPoint").innerHTML = userPoint;
     document.getElementById("ordiPoint").innerHTML = ordiPoint;

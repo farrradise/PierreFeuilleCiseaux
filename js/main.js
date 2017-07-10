@@ -51,12 +51,12 @@ function switchToTuJoues() {
 
 function myMessageWin() {
   phraseEgal.style.visibility = "visible";
-  phraseEgal.innerHTML = "you win!";
+  phraseEgal.innerHTML = "GG, tu gagnes!";
 }
 
 function myMessageLoose() {
   phraseEgal.style.visibility = "visible";
-  phraseEgal.innerHTML = "you loose!";
+  phraseEgal.innerHTML = "t'as PERDUUU!";
 }
 
 

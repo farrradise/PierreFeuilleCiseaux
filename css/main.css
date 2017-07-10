@@ -140,26 +140,18 @@ h1, #play p, #animation p {
   width: 200px;
   display: flex;
   position: absolute;
-  /*margin-left: 3vw;*/
-  /*border: 2px solid black;*/
 }
 
 #animation p {
-  /*position: absolute;*/
-  /*margin: auto;*/
   width: 300px;
-  /*top: -10vh;*/
 }
 
 .anim:nth-of-type(1) {
   top: 50px;
-  /*margin-bottom: 50px!important;*/
-  /*margin-top: 0;*/
 }
 
 .anim:nth-of-type(2) {
   bottom: 0vh;
-  /*margin-top: 50px!important;*/
 }
 
 #botChoix {
@@ -198,15 +190,19 @@ aside div * {
   height: 20vh;
 }
 
-@media (max-width:500px) {
-  #animation p, #score h3 {
-    display: none;
-  }
+@media (max-width:750px) {
 
   h1 {
     margin-top: 0px!important;
     font-size: 45px;
     z-index: 5;
+  }
+
+}
+
+@media (max-width:500px) {
+  #animation p, #score h3 {
+    display: none;
   }
 
   aside {
